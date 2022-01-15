@@ -100,9 +100,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "fedex_test_task"
+  "defaultProject": "fedex_test_task",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

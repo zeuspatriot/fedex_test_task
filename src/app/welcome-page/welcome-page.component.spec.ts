@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material/button';
 
 import { WelcomePageComponent } from './welcome-page.component';
 
@@ -8,7 +9,10 @@ describe('WelcomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomePageComponent ]
+      declarations: [ WelcomePageComponent ],
+      imports: [
+        MatButtonModule,
+      ],
     })
     .compileComponents();
   });

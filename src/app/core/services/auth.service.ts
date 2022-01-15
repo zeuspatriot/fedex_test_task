@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { SignupInput, User } from '../types';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +10,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  signUp = (value: {
-    firstName: string,
-    lastName: string,
-    email: string
-  }) => {
-    return this.http.post('https://demo-api.now.sh/users', value);
+  signUp = (value: SignupInput): Observable<User> => {
+    return this.http.post<User>('https://demo-api.now.sh/users', value);
   }
 }
