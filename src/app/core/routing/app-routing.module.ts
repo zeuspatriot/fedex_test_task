@@ -5,13 +5,13 @@ import { SuccessPageComponent } from '../../success-page/success-page.component'
 import { WelcomePageComponent } from '../../welcome-page/welcome-page.component';
 
 const routes: Routes = [
-  {path: '', component: WelcomePageComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'success', component: SuccessPageComponent}
+  { path: '', component: WelcomePageComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'success', component: SuccessPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

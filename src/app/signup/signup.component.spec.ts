@@ -11,15 +11,10 @@ describe('SignupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignupComponent ],
-      imports: [
-        MatCardModule,
-        MatSnackBarModule,
-        RouterTestingModule
-      ],
-      providers: []
-    })
-    .compileComponents();
+      declarations: [SignupComponent],
+      imports: [MatCardModule, MatSnackBarModule, RouterTestingModule],
+      providers: [],
+    }).compileComponents();
   });
 
   beforeEach(() => {

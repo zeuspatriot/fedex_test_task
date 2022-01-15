@@ -5,17 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    HeaderComponent
-  ],
-  imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    RouterModule
-  ],
-  exports: [
-    HeaderComponent
-  ],
-  
+  declarations: [HeaderComponent],
+  imports: [MatToolbarModule, MatButtonModule, RouterModule],
+  exports: [HeaderComponent],
 })
-export class HeaderModule { }
+export class HeaderModule {}

@@ -11,9 +11,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -22,9 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderModule,
     WelcomePageModule,
     SignupModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

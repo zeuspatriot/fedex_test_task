@@ -9,8 +9,6 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SignupFormComponent } from '../signup-form/signup-form.component';
 
-
-
 @NgModule({
   declarations: [SignupComponent, SignupFormComponent],
   imports: [
@@ -21,8 +19,8 @@ import { SignupFormComponent } from '../signup-form/signup-form.component';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
-  exports: [SignupComponent]
+  exports: [SignupComponent],
 })
-export class SignupModule { }
+export class SignupModule {}

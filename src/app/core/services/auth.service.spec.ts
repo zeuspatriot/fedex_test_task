@@ -6,15 +6,18 @@ import { AuthService } from './auth.service';
 describe('AuthServiceService', () => {
   let service: AuthService;
   const HttpClientMock = {
-    post: jasmine.createSpy('post')
+    post: jasmine.createSpy('post'),
   };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [{
-        provide: HttpClient, useValue: HttpClientMock 
-      }]
+      providers: [
+        {
+          provide: HttpClient,
+          useValue: HttpClientMock,
+        },
+      ],
     });
     service = TestBed.inject(AuthService);
   });
@@ -31,7 +34,9 @@ describe('AuthServiceService', () => {
     };
     service.signUp(TEST_DATA);
 
-    expect(HttpClientMock.post).toHaveBeenCalledWith('https://demo-api.now.sh/users', TEST_DATA);
-  })
-
+    expect(HttpClientMock.post).toHaveBeenCalledWith(
+      'https://demo-api.now.sh/users',
+      TEST_DATA
+    );
+  });
 });

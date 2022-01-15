@@ -13,24 +13,21 @@ describe('SignupFormComponent', () => {
   let component: SignupFormComponent;
   let fixture: ComponentFixture<SignupFormComponent>;
   const AuthServiceMock = {
-    signUp: jasmine.createSpy('signUp').and.returnValue(of({}))
+    signUp: jasmine.createSpy('signUp').and.returnValue(of({})),
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignupFormComponent ],
+      declarations: [SignupFormComponent],
       imports: [
         MatInputModule,
         MatFormFieldModule,
         BrowserAnimationsModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
       ],
-      providers: [
-        {provide: AuthService, useValue: AuthServiceMock}
-      ]
-    })
-    .compileComponents();
+      providers: [{ provide: AuthService, useValue: AuthServiceMock }],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -78,7 +75,8 @@ describe('SignupFormComponent', () => {
   });
 
   it('should correctly validate password', () => {
-    const passwordControl = fixture.componentInstance.signUpForm.get('password');
+    const passwordControl =
+      fixture.componentInstance.signUpForm.get('password');
     passwordControl?.setValue('1234567');
     expect(passwordControl?.getError('minlength')).toBeTruthy();
     passwordControl?.setValue('testtest');
@@ -94,7 +92,8 @@ describe('SignupFormComponent', () => {
   });
 
   it('should accept properly validated password', () => {
-    const passwordControl = fixture.componentInstance.signUpForm.get('password');
+    const passwordControl =
+      fixture.componentInstance.signUpForm.get('password');
     fixture.componentInstance.signUpForm.get('firstName')?.setValue('Test');
     fixture.componentInstance.signUpForm.get('lastName')?.setValue('West');
     passwordControl?.setValue('BestCrest');
@@ -102,7 +101,8 @@ describe('SignupFormComponent', () => {
   });
 
   it('confirm password should match password', () => {
-    const confirmPasswordControl = fixture.componentInstance.signUpForm.get('confirmPassword');
+    const confirmPasswordControl =
+      fixture.componentInstance.signUpForm.get('confirmPassword');
     fixture.componentInstance.signUpForm.get('password')?.setValue('TestTest');
     confirmPasswordControl?.setValue('testtest');
     expect(confirmPasswordControl?.getError('noMatch')).toBeTruthy();
@@ -110,7 +110,7 @@ describe('SignupFormComponent', () => {
     expect(confirmPasswordControl?.getError('noMatch')).toBeTruthy();
     confirmPasswordControl?.setValue('TestTest');
     expect(confirmPasswordControl?.getError('noMatch')).toBeNull();
-  })
+  });
 
   it('should submit data to AutService with proper format', () => {
     const TEST_DATA = {
@@ -118,21 +118,31 @@ describe('SignupFormComponent', () => {
       lastName: 'Best',
       email: 'test@best.com',
       password: 'CrestWest',
-      confirmPassword: 'CrestWest'
+      confirmPassword: 'CrestWest',
     };
 
-    fixture.componentInstance.signUpForm.get('firstName')?.setValue(TEST_DATA.firstName);
-    fixture.componentInstance.signUpForm.get('lastName')?.setValue(TEST_DATA.lastName);
-    fixture.componentInstance.signUpForm.get('email')?.setValue(TEST_DATA.email);
-    fixture.componentInstance.signUpForm.get('password')?.setValue(TEST_DATA.password);
-    fixture.componentInstance.signUpForm.get('confirmPassword')?.setValue(TEST_DATA.confirmPassword);
+    fixture.componentInstance.signUpForm
+      .get('firstName')
+      ?.setValue(TEST_DATA.firstName);
+    fixture.componentInstance.signUpForm
+      .get('lastName')
+      ?.setValue(TEST_DATA.lastName);
+    fixture.componentInstance.signUpForm
+      .get('email')
+      ?.setValue(TEST_DATA.email);
+    fixture.componentInstance.signUpForm
+      .get('password')
+      ?.setValue(TEST_DATA.password);
+    fixture.componentInstance.signUpForm
+      .get('confirmPassword')
+      ?.setValue(TEST_DATA.confirmPassword);
 
     fixture.componentInstance.submitForm();
 
     expect(AuthServiceMock.signUp).toHaveBeenCalledWith({
       firstName: TEST_DATA.firstName,
       lastName: TEST_DATA.lastName,
-      email: TEST_DATA.email
+      email: TEST_DATA.email,
     });
   });
 });

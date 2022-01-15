@@ -9,12 +9,9 @@ describe('WelcomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomePageComponent ],
-      imports: [
-        MatButtonModule,
-      ],
-    })
-    .compileComponents();
+      declarations: [WelcomePageComponent],
+      imports: [MatButtonModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
